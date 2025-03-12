@@ -15,8 +15,8 @@
     <label for="check" class="checkbtn">
       <i class="fas fa-bars"></i>
     </label>
-    <label class="logo">Pokédex</label>
-    <ul>
+    <label class="logo"><img src="./public/pokemon_logo.png" alt=""></label>
+    <ul class="nav-links">
       <li><a class="active" href="#" data-page="home">Inicio</a></li>
       <li><a class="" href="#" data-page="pokedex">Todos</a></li>
       <li><a class="" href="#" data-page="search">Búsqueda</a></li>
@@ -26,6 +26,13 @@
   </nav>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
+  <script>
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('check').checked = false; // Cierra el menú
+        });
+    });
+  </script>
 </body>
 
 </html>

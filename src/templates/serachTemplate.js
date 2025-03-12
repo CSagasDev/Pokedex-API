@@ -8,5 +8,5 @@ export function searchTemplate() {
       </div>
       <div id="searchResult" class="text-center"></div>
     </div>
-  `;
+  `
 }

@@ -1,27 +1,36 @@
-import { getRandomPokemon } from '../components/randomPokemon';
+import { getRandomPokemon } from '../components/randomPokemon'
 
 export async function homeTemplate() {
-  const pokemonList = await getRandomPokemon();
+  const pokemonList = await getRandomPokemon()
   return `
     <div class="pokemon-container">
       ${pokemonList
         .map(
-          (pokemon) => `
-        <div class="pokemon-card">
-          <img src="${pokemon.sprites.front_default}" class="pokemon-img" alt="${pokemon.name}">
+          (pokemon) => `  
+          <div class="pokemon-card">
+          <p class="pokemon-id-bk">#${pokemon.id}</p>
+          <div class=""pokemon-img> 
+          <img src="${
+            pokemon.sprites.other['official-artwork'].front_default
+          }" class="pokemon-img" alt="${pokemon.name}">
+          </div>
           <div class="pokemon-info">
-            <h5 class="pokemon-id">#${pokemon.id}</h5>
-            <h5 class="pokemon-name">${pokemon.name.toUpperCase()}</h5>
+            <h5 class="pokemon-name">${pokemon.name}</h5>
+           <div>
             <p class="pokemon-types">
               ${pokemon.types
-                .map((type) => `<span class="pokemon-type ${type.type.name}">${type.type.name}</span>`)
-                .join(" ")}
+                .map(
+                  (type) =>
+                    `<span class="pokemon-type ${type.type.name}">${type.type.name}</span>`
+                )
+                .join(' ')}
             </p>
+           </div>
           </div>
         </div>
       `
         )
-        .join("")}
+        .join('')}
     </div>
-  `;
+  `
 }
